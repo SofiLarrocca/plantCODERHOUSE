@@ -9,30 +9,39 @@ import './nav.css';
 import palmera from '../../img/palmera_fondo.png'
 import plantaFondo from '../../img/planta_fondo.png'
 
+
+// react-router-dom
+import { Link} from 'react-router-dom';
+
+// componentes
+import { NavLink } from 'react-router-dom';
+
 const Navbar = () => {
+
+  const categorias = [
+    {id:0, tipo: 'Interior', ruta: '/productos/interior'},
+    {id:1, tipo: 'Exterior', ruta: '/productos/exterior'},
+    {id:2, tipo: 'Accesorios', ruta: '/productos/accesorios'},
+    {id:3, tipo: 'Macetas', ruta: '/productos/macetas'},
+    {id:4, tipo: '', ruta: '/productos/todos'},
+  ]
 
 
   return (
     <>
-      <div className='container_navbar'>
-
-        <img className='img_palmera' src={palmera} alt='palmera'/>
         <nav>
-          <div>
-            <a href='interior'>Interior</a>
-            <a href='exterior'>Exterior</a>
-            <a href='accesorios'>Accesorios</a>
+          <div className='navLink'>
+            {categorias.map((categorias) => { 
+              return <NavLink className='navBar-a' key={categorias.id} to={categorias.ruta}>{categorias.tipo}</NavLink>
+            })}
           </div>
-
           <div className='navBarRight'> 
-            <CardWidgt></CardWidgt>
-            <p><span className='logo'>Plant.</span></p>
+            <Link to='/cart'>
+              <CardWidgt></CardWidgt>
+            </Link>
+            <Link to='/' className='logo'>Plant.</Link>
           </div>
-        </nav>
-        
-        <img className='img_planta' src={plantaFondo} alt='planta'/>
-        
-      </div>
+        </nav>        
     </>
   )
 }

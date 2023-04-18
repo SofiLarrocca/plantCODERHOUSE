@@ -1,4 +1,85 @@
+/* ItemListContainer */
 h2 { 
     text-align: center;
     padding: 2rem 0;
+}
+
+/* ItemList */
+.grid-container { 
+    padding: 5rem 0;
+    width: 85%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 5rem;
+    column-gap: 3rem;
+}
+
+/* Item */
+
+.card-container { 
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    padding-top: 2rem;
+}
+
+.img-prod { 
+    max-width: 130px;
+    margin: 1.5rem 0 1rem 0;
+}
+
+.card-titulo { 
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    letter-spacing: 0.1rem;
+    font-weight: 400;
+}
+
+.card-price { 
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 0.3rem 0;
+}
+
+.card-price { 
+    font-weight: 800;
+}
+
+.card-categoria { 
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+
+.card-button { 
+    text-transform: uppercase;
+    padding: 0.6rem 2rem;
+    margin-top: 1rem;
+    background-color: #fff;
+    border: 1px solid #000;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.card-button:hover { 
+    background-color: #000;
+    color: #fff;
+}
+
+.card-detalle { 
+    padding: 1rem 0;
+    border-top: 3px solid #2e2e2e78;
+    box-shadow: 0px -3px 5px -3px rgba(36,34,34,0.75);
+    background-color: #ebf6ea3d;
+}
+
+.spiner { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 0;
+    color: #000;
+}
+
+.spiner h4 { 
+    padding: 0 1rem;
 }

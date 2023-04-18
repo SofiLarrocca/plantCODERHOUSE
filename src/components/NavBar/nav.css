@@ -1,49 +1,32 @@
-.container_navbar { 
-    display: flex;
-    width: 80%;
-    height: 80vh;
-    margin: auto;
-    margin-top: 2rem;
-    align-items: center;
-    z-index: 200;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    position: relative;
-}
-
-.img_palmera { 
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.img_planta { 
-    position: absolute;
-    bottom: 0;
-    right: 0;
-}
-
 nav { 
     box-shadow: rgba(0, 0, 0, 0.45) 0px 20px 5px -20px;
+    width: 80%;
+    margin: auto;
     display: flex;
-    width: 95%;
-    margin: 0 auto;
     align-items: center;
     align-self: flex-start;
     justify-content: space-between;
-    padding: 1.5rem 5rem 1.5rem 15rem;
+    margin-top: 2rem;
+    padding: 1rem;
+}
+
+.navLink { 
+    margin-left: 15rem;
 }
 
 nav a {
-    padding: 2px 1.2px;
-    margin: 0 2rem;
+    display: inline;
+    font-size: 0.9rem;
     text-decoration: none;
-    font-weight: 400;
     color:rgb(110, 109, 109);
     text-transform: uppercase;
     position: relative;
+    margin: 0 1.5rem;
+    z-index: 300;
 }
 
-nav a:before { 
+
+.navBar-a:before { 
     position: absolute;
     bottom: 0;
     left: 0;
@@ -65,69 +48,34 @@ nav a:hover:before {
 }
 
 .logo {
-    margin-left: 2rem;
     font-weight: 600;
     font-size: 1.5rem;
     color:#a4e6a1;
+    font-weight: 600;
+    text-transform: capitalize;
+    z-index: 300;
+} 
+ 
 
-}
 
-
-/* media queryes */
-@media only screen and (max-width: 500px) { 
+@media (max-width: 800px) { 
     .active { 
         display: block;
     }
 
-    .open { 
-        visibility: visible;
+    .hidden { 
+        visibility: none;
     }
-
-    .logo { 
-        position: fixed;
-        bottom: 0;
-        width: 80%;
-        margin: auto;
-        text-align: center;
-
-    }
-
-    nav { 
-        box-shadow: 0px 3px 2px  rgba(0, 0, 0, 0.15), 0px -3px 2px rgba(0, 0, 0, 0.15);
-        padding: 5rem 0;
-        margin: 0;
-        background-color: #fff;
-        position: fixed;
-        top: 20%;
-        height: 80%;
-        width: 80%;
-        flex-direction: column;
-        justify-content: start;
-        align-items: center;
-    }
-
-    nav a { 
-        padding: 2rem 0;
-    }
-
-    .img_palmera { 
-        z-index: 200;
-    }
-
-    }
-
-
-@media only screen and (min-width:501px) and (max-width: 768px) {
-    nav { 
-        margin-left: 8rem ;
-        width: 60%;
-        padding: 1rem 0;
-    }
-
-    nav a {
-        padding: 2px 0;
-        margin: 0 1rem;
-        font-size: 0.8rem;
-    }
-
 }
+
+
+
+
+
+
+
+
+
+
+
+

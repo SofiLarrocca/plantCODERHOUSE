@@ -1,0 +1,57 @@
+
+[
+    {
+      "id": 1,
+      "nombre": "palo de agua",
+      "categoria": "interior",
+      "descripcion": ".............",
+      "img": "../productos/palo_agua.png",
+      "precio": "1000",
+      "stock": "5"
+    },
+    {
+      "id": 2,
+      "nombre": "palmera",
+      "categoria": "interior",
+      "descripcion": ".............",
+      "img": "../productos/palmera.png",
+      "precio": "1200",
+      "stock": "7"
+    },
+    {
+      "id": 3,
+      "nombre": "sansevieria",
+      "categoria": "exterior",
+      "descripcion": ".............",
+      "img": "../productos/sansevieria.png",
+      "precio": "800",
+      "stock": "2"
+    },
+    {
+      "id": 4,
+      "nombre": "Maceta 50 cm",
+      "categoria": "macetas",
+      "descripcion": ".............",
+      "img": "../productos/maceta50cm.png",
+      "precio": "800",
+      "stock": "15"
+    },
+    {
+      "id": 5,
+      "nombre": "Maceta pintada a mano Captus",
+      "categoria": "macetas",
+      "descripcion": ".............",
+      "img": "../productos/macetaPintada.png",
+      "precio": "800",
+      "stock": "1"
+    },
+    {
+      "id": 6,
+      "nombre": "Set Jardinería",
+      "categoria": "accesorios",
+      "descripcion": ".............",
+      "img": "../productos/setJardineria.png",
+      "precio": "800",
+      "stock": "3"
+    }
+]
