@@ -20,7 +20,7 @@ const Home = () => {
           <h2 className='title'>Plant.</h2>
           <p>Encontrarás plantas para tu hogar, patio u oficina. También podrás encontrar accesorios de jardinería</p>
 
-          <Link  to= '/productos/todos' className='getStart'> Ir a tienda</Link>
+          <Link  to= '/productos' className='getStart'> Ir a tienda</Link>
       </div>
 
         </div>

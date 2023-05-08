@@ -15,32 +15,52 @@ import { Link} from 'react-router-dom';
 
 // componentes
 import { NavLink } from 'react-router-dom';
+import { useState } from 'react';
+
+
+// fontAwesome
+// fontawesome
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
+
+  const [isOpen, setIsOpen] = useState(false)
 
   const categorias = [
     {id:0, tipo: 'Interior', ruta: '/productos/interior'},
     {id:1, tipo: 'Exterior', ruta: '/productos/exterior'},
     {id:2, tipo: 'Accesorios', ruta: '/productos/accesorios'},
-    {id:3, tipo: 'Macetas', ruta: '/productos/macetas'},
-    {id:4, tipo: '', ruta: '/productos/todos'},
   ]
 
 
   return (
     <>
         <nav>
-          <div className='navLink'>
-            {categorias.map((categorias) => { 
-              return <NavLink className='navBar-a' key={categorias.id} to={categorias.ruta}>{categorias.tipo}</NavLink>
-            })}
+          <div className={`${isOpen ? 'openMenu' : 'navLink'}`}>
+              {categorias.map((categorias) => { 
+                return <NavLink 
+                onClick={() =>setIsOpen(false)}
+                key={categorias.id} to={categorias.ruta}>{categorias.tipo}</NavLink>
+              })}
           </div>
-          <div className='navBarRight'> 
-            <Link to='/cart'>
+
+          {isOpen ? <FontAwesomeIcon onClick={() =>setIsOpen(false)} className='menu' icon={faXmark} /> 
+                  : <FontAwesomeIcon onClick={() =>setIsOpen(true)}  className='menu' icon={faBars} />
+          }
+
+          <div className= {`${isOpen ? 'navBarRight' : 'navBarRight hidden'}`}> 
+            <Link 
+                  onClick={() =>setIsOpen(false)}
+                  to='/cart'>
               <CardWidgt></CardWidgt>
             </Link>
-            <Link to='/' className='logo'>Plant.</Link>
+            <Link 
+                  onClick={() =>setIsOpen(false)}
+                  to='/' className='logo'>Plant.</Link>
           </div>
+
         </nav>        
     </>
   )

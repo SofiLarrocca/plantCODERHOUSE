@@ -2,6 +2,9 @@ import { useParams } from 'react-router-dom'
 import { mostrarProductos } from '../../helpers/mostrarProductos'
 import { useEffect, useState } from 'react'
 
+// firestore
+import { getFirestore } from '../../firebase/config'
+
 // componentes
 import ItemDetail from './ItemDetail'
 
@@ -15,15 +18,44 @@ const ItemDetailContainer = () => {
 
  let {itemId} = useParams ()
 
-  useEffect(()=>{
+
+ useEffect (()=> { 
+
     setLoading(true)
-    mostrarProductos()
-      .then(res => setItem(res.find((prod =>  prod.id === Number(itemId)))))
-      .catch(err => console.log(err))
-      .finally(()=> { 
+
+  // conexion DB
+  const db = getFirestore();
+  const productosDB = db.collection('productos')  //método collection de firebase
+
+  const item = productosDB.doc(itemId)
+
+  item.get()
+    .then ((doc) =>
+      setItem( {
+        id:doc.id, ...doc.data()
+      }))
+
+      .catch((err) =>console.log(err))
+      .finally (() => { 
         setLoading(false)
       })
-    },[itemId])
+
+ },[itemId])
+
+
+
+
+
+  // base de datos mock
+  // useEffect(()=>{
+  //   setLoading(true)
+  //   mostrarProductos()
+  //     .then(res => setItem(res.find((prod =>  prod.id === Number(itemId)))))
+  //     .catch(err => console.log(err))
+  //     .finally(()=> { 
+  //       setLoading(false)
+  //     })
+  //   },[itemId])
 
 
   return (

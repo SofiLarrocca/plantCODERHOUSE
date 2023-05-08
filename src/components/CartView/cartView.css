@@ -1,0 +1,44 @@
+.cartView_container { 
+    width: 80%;
+    margin: 2rem auto;
+}
+
+.table_cartView { 
+    width: 100%;
+    margin: auto;     
+    text-align: center; 
+}
+
+th {
+    padding: 1rem;
+    border-bottom: 1px solid #000;
+}
+
+td {
+    border-bottom: 1px solid #b3b1b154;
+    padding: 0.5rem;
+}
+
+.precioTotal { 
+    text-align: end;
+    width: 87%;
+    padding: 2rem 0;
+}
+
+.container_btn { 
+    text-align: center;
+}
+
+.btn_checkout { 
+    padding: 0.5rem 1rem;
+    margin: 2rem 1rem;
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #000;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.trash { 
+    cursor: pointer;
+}

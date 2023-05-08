@@ -6,6 +6,6 @@ export const mostrarProductos = () => {
       setTimeout(() => {
         resolve(json)
         reject('Rechazado')
-      }, 2000);
+      }, 0);
     })
   }

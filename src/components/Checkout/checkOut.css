@@ -1,0 +1,61 @@
+.checkout_container { 
+    width: 60%;
+    margin: 3rem auto;
+}
+
+form { 
+    padding: 2rem 0;
+    width: 80%;
+    margin: auto;
+}
+
+label p { 
+    margin-top: 1rem;
+}
+
+input { 
+    width: 100%;
+    padding: 0.3rem 0;
+}
+
+
+.detalleCompra {
+    /* width: 60%; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 0px;
+}
+
+.detalleCompra img {
+    max-width: 50px;
+}
+
+.detalleCompra p { 
+    font-size: 0.8rem;
+}
+
+.btn_formulario { 
+    padding: 0.5rem 0;
+    width: 100%;
+    margin: 2rem 0;
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #000;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+
+.mensaje { 
+    width: 100%;
+    margin: auto;
+    background-color: rgb(204, 17, 17);
+    color: #fff;
+    font-weight: 800;
+    font-size: 0.8rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+

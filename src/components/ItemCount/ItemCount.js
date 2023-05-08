@@ -1,38 +1,27 @@
 // styles
 import './itemCount.css'
 
+// cartContext
+import { useContext } from "react"
+import { CartContext } from "../Context/CartContext"
+
+// useState
 import { useState } from "react"
 
-const ItemCount = ({stock}) => {
 
-    const initial = 1
-  
-    const [counter, setCounter] = useState (initial)
+const ItemCount = ({stock, counter, setCounter}) => {
 
-    const handleAdd = () => { 
-        if (stock > counter) { 
-            setCounter (counter + 1)
-        }
-    }
-  
-    const handleRemove = () => {
-        if (counter > 0) { 
-            setCounter (counter - 1)
-        }
-    }
+    // cartContext
+    const {handleAdd, handleRemove} = useContext(CartContext)
 
-    const handleReset = () => { 
-        setCounter(0)
-    }
 
     return (
     <div className='item_counter'>
         <div className="container_counter">
-            <button onClick={handleRemove}> - </button>
+            <button onClick={() => handleRemove(counter, setCounter)}> - </button>
             <p>Cantidad: {counter}</p> 
-            <button onClick={handleAdd}> + </button>
+            <button onClick={() => handleAdd(stock, counter, setCounter)}> + </button>
         </div>
-        <button className='btn_reset' onClick={handleReset}> Vaciar Carrito </button>
     </div>
   )
 }
