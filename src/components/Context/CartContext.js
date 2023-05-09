@@ -1,10 +1,6 @@
 // from react
 import { createContext, useEffect, useState } from "react";
 
-// libreria toastify notificacion
-import { toast } from 'react-toastify';
-
-
 // cartContext
 export const CartContext = createContext()
 
@@ -28,11 +24,11 @@ export const CartProvider = ({children})=> {
     const addCart = (newItem, counter) => { 
         const newCart = carrito.filter((item => item.id !== newItem.id))
         newCart.push({...newItem, cantidad:counter})
+        console.log(counter)
         setCarrito(newCart)
-
-        toast.success("Se agregó producto al carrito")
-    }
+}
     
+
     const cantidadTotal = () => { 
         return carrito.reduce((acc, prod)=> acc +prod.counter,0)
     }

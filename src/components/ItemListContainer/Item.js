@@ -5,14 +5,6 @@ import { Link } from "react-router-dom";
 
 
 const Item = ({producto}) => {
-
-  // const [imgURL, setImgURL] = useState(null);
-
-  // const storage = getStorage();
-
-  // getDownloadURL(ref(storage, producto.img))
-  //   .then(setImgURL)
-  //   .catch((error) => console.log("error:", error));
   
   return (
     <div className="card-container">

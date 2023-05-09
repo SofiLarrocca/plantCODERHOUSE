@@ -13,9 +13,7 @@ const ItemCount = ({stock, counter, setCounter}) => {
 
     // cartContext
     const {handleAdd, handleRemove, mensaje} = useContext(CartContext)
-
-    // console.log(mensaje)
-
+    
     return (
     <div className='item_counter'>
         <p className='mensaje_stock'>{mensaje}</p>

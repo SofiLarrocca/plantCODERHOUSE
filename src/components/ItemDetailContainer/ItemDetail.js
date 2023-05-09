@@ -17,7 +17,8 @@ import { CartContext } from '../Context/CartContext'
 import './itemDetail.css'
 import { useContext, useState } from 'react'
 
-
+// libreria toastify notificacion
+import { toast } from 'react-toastify';
 
 const ItemDetail = ({id, nombre, categoria, precio, img, stock}) => {
 
@@ -28,9 +29,10 @@ const ItemDetail = ({id, nombre, categoria, precio, img, stock}) => {
     navigate(-1)
   }
 
-  const [counter, setCounter] = useState (1) //pasar esto por props en itemCount
+  const [counter, setCounter] = useState (0) 
 
   const agregarCarrito = () => { 
+    if (counter > 0) { 
     const newItem = {
       nombre,
       id,
@@ -40,6 +42,10 @@ const ItemDetail = ({id, nombre, categoria, precio, img, stock}) => {
       counter,
     }
     addCart(newItem)
+
+    // Notificación
+    toast.success("Se agregó producto al carrito")
+  }
   }
 
   // consumir datos del contexto CartContext
@@ -53,7 +59,7 @@ const ItemDetail = ({id, nombre, categoria, precio, img, stock}) => {
 
         <div className='card-responsive'>
           <p className='detail-precio'>$ {Number(precio)}</p>
-          <p className='detail-stock'>Stock: {stock}</p>
+          <p className='detail-stock'>Stock: {stock-counter}</p>
           <ItemCount 
             className= 'detal-count'
             stock={stock}
