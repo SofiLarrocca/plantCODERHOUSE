@@ -16,6 +16,7 @@ const init = JSON.parse(localStorage.getItem('carrito')) || []
 
 export const CartProvider = ({children})=> {
     
+    const [mensaje, setMensaje] = useState('')
 
     const [carrito, setCarrito] = useState(init)
 
@@ -54,6 +55,11 @@ export const CartProvider = ({children})=> {
     const handleAdd = (stock, counter, setCounter) => { 
         if (stock > counter) { 
             setCounter (counter + 1)
+        } else { 
+            setMensaje('no hay stock suficiente')
+            setTimeout(() => {
+                setMensaje('')
+            }, 3000);
         }
     }
 
@@ -62,11 +68,6 @@ export const CartProvider = ({children})=> {
             setCounter (counter - 1)
         }
     }
-
-
-    // const handleReset = (setCounter) => { 
-    //     setCounter(0)
-    // }
 
     return (
         <CartContext.Provider
@@ -79,16 +80,10 @@ export const CartProvider = ({children})=> {
             handleAdd,
             handleRemove,
             carrito,
+            mensaje,
           }}>
             {children}
         </CartContext.Provider>
     )
 }
 
-
-
-// const addItem = (item, counter) => { 
-//     const newCart = cart.filter(prod => prod.id !== item.id);
-//     newCart.push ({...item, cantidad:counter})
-//     setCart (newCart)
-// }

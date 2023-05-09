@@ -21,6 +21,7 @@ import { useContext, useState } from 'react'
 
 const ItemDetail = ({id, nombre, categoria, precio, img, stock}) => {
 
+
   const navigate = useNavigate() 
   
   const atras = () => { 

@@ -1,70 +1,25 @@
-# Getting Started with Create React App
+Plant es un ecommerce dedicado a la venta de plantas y accesorios de jardinería. 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Su página es responsive, pudiendose visualizar en diferentes pantallas. 
 
-## Available Scripts
+Su página cuenta con una página inicial "Home". De ella podrás navegar hacia la lista completa de productos disponibles o visualizar los productos filtrados por la categoría seleccionada: Exterior, Interior y Accesorios. 
 
-In the project directory, you can run:
+La lista de productos muestra Nombre, imagen del producto, su categoría y su precio, además un boton "Ver más" que permite navegar hacia el detalle del producto. 
 
-### `npm start`
+En la card del detalle mostrará además del detalle de la card, el stock disponible del producto seleccionado, un boton para seleccionar la cantidad y un boton para agregar al carrito. El botón "+" dejará de funcionar si se selecciona el total del stock, así mismo si queres agregar más cantidad del stock disponible se mostrará un cartel "No hay stock suficiente".
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Al hacer click en el boton "Agregar el carrito", la página mostrará una notificación "Se agregó producto al carrito". 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Los productos agregados sumarán en el widget "Carrito", pudiendo acceder al detelle de la compra haciendo click en el icono. 
 
-### `npm test`
+El detalle del carrito se mostrará en el componente "CartView", visualizando imagen, cantidad, precio unitario y total. Además encontrarás un icono para poder borarr el producto del carrito. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+En el componente CartView podrás vaciar el carrito desde el botón "Vaciar carrito" o finalizar la compra desde el boton "Finalizar Compra".
 
-### `npm run build`
+Una vez cliqueado el boton "Finalizar Compra" la página te llevará a completar forumario con datos del comprador. El formulario cuenta con la validación de que todos los campos sean completados y además comprobando que los emails agregados sean coincidentes. En caso de existir error en la validación, mostrará el mensaje: "Todos los campos son obligatarios" o "Los correos no coinciden". 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Pasada la validación del formulario, se generará una orden nueva, mostrando en pantalla notificación "Gracias por su compra" y mostrará el N° de Orden. (este es un número aleatorio); agregando la orden con sus datos a la base de datos "Ordenes" de Firebase. 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

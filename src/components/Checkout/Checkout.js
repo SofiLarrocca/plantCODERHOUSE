@@ -27,9 +27,10 @@ const Checkout = () => {
   const [nombre, setNombre] = useState('')
   const [apellido, setApellido] = useState('')
   const [email, setEmail] = useState('')
+  const [emailRepeat, setEmailRepeat] = useState('')
   const [telefono, setTelefono] = useState('')
 
-
+  
   const handleSubmit = (e) => { 
     e.preventDefault()
 
@@ -38,8 +39,15 @@ const Checkout = () => {
 
       setTimeout(() => {
           setMensaje('')
-      }, 2000);
-  } else {
+      }, 3000);
+  } else if (email !== emailRepeat) { 
+    setMensaje('Los correos no coinciden')
+
+      setTimeout(() => {
+          setMensaje('')
+      }, 3000);
+  } 
+  else {
     const nuevaOrden = {
       buyer: { 
         nombre,
@@ -50,11 +58,9 @@ const Checkout = () => {
       },
       item: carrito,
       precioTotal: precioTotal(),
-      // data: firebase.firestore.Timestamp.fromDate(new Date())
       fecha: new Date().toLocaleDateString('es-ES', {year:'numeric', month:'long', day:'numeric'})
     }
 
-    console.log(nuevaOrden)
     
      
     // enviar datos a firebase
@@ -62,26 +68,24 @@ const Checkout = () => {
     const ordenes = db.collection("ordenes")
     ordenes.add(nuevaOrden)
     
-    // Swal.fire({
-    //   title: `Gracias por tu compra
-    //   Orden N°: ${nuevaOrden.buyer.nro_orden}`,
-    //   icon: 'success',})
-  }
     // actualizar cantidad en la base de datos
-    // carrito.forEach((item => { 
-    //   const docRef = db.collection('productos').doc(item.id)
-      
-    //   docRef.get()
-    //   .then((doc)=> { 
-    //     docRef.update({
-    //       stock: doc.data().stock -item.counter
-    //     })
+    carrito.forEach((item => { 
+    const docRef = db.collection('productos').doc(item.id)
         
-        
-    //   })
-    // }))
-  
-  
+    docRef.get()
+      .then((doc)=> { 
+        docRef.update({
+          stock: doc.data().stock -item.counter
+          })
+          
+    // Libreria sweetAlert
+    Swal.fire({
+      title: `Gracias por tu compra
+      Orden N°: ${nuevaOrden.buyer.nro_orden}`,
+      icon: 'success',})
+    })
+  }))
+}
 }
 
 
@@ -111,9 +115,18 @@ const Checkout = () => {
               <p>Email</p>
             </label>
             <input
-              type='emial' 
+              type='email' 
+              value={emailRepeat}
+              onChange={(e)=>setEmailRepeat(e.target.value)}/>
+
+            <label>
+              <p>Repetí tu email</p>
+            </label>
+            <input
+              type='email' 
               value={email}
               onChange={(e)=>setEmail(e.target.value)}/>
+              {email !== emailRepeat && <p className='mensaje_email'>*Los correos no coinciden</p>}
 
             <label>
               <p>Telefono</p>
